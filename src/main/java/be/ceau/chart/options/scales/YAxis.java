@@ -15,6 +15,7 @@
 */
 package be.ceau.chart.options.scales;
 
+import be.ceau.chart.enums.YAxisPosition;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -58,7 +59,12 @@ public class YAxis<T extends Ticks<T>> {
 	 * @see #setStacked(Boolean stacked)
 	 */
 	private Boolean stacked;
-
+        
+        /**
+	 * @see #setPosition(YAxisPosition)
+	 */
+	private YAxisPosition position;
+        
 	/**
 	 * @see #setTicks(Ticks)
 	 */
@@ -132,6 +138,29 @@ public class YAxis<T extends Ticks<T>> {
 	public YAxis<T> setStacked(Boolean stacked) {
 		this.stacked = stacked;
 		return this;
+	}
+        
+        /**
+	 * @see #setPosition(YAxisPosition)
+	 */
+	public YAxisPosition getPosition() {
+		return this.position;
+	}
+
+	/**
+	 * <p>
+	 * Position of the scale. Possible values are 'left' and
+	 * 'right'.
+	 * </p>
+	 * 
+	 * <p>
+	 * Default {@code "left"}
+	 * </p>
+	 */
+	@SuppressWarnings("unchecked")
+	public YAxis<T> setPosition(YAxisPosition position) {
+		this.position = position;
+	    return this;
 	}
 
 }
